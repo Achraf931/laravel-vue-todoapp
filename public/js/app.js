@@ -1979,7 +1979,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/tasks').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/tasks').then(function (res) {
       _this.tasks = res.data;
     });
   },
@@ -1988,7 +1988,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this.$v.newTask.required) {
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('http://127.0.0.1:8000/api/tasks', {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/tasks', {
           content: this.newTask
         }).then(function (res) {
           _this2.tasks.unshift(res.data);
@@ -2002,7 +2002,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteTask: function deleteTask(task) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]('http://127.0.0.1:8000/api/tasks/' + task.id).then(function () {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]('/api/tasks' + task.id).then(function () {
         _this3.tasks.forEach(function (e) {
           if (e === task) {
             _this3.tasks.splice(_this3.tasks.indexOf(e), 1);
@@ -2066,7 +2066,7 @@ __webpack_require__.r(__webpack_exports__);
   beforeMount: function beforeMount() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/tasks/' + this.$route.params.id).then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/tasks' + this.$route.params.id).then(function (res) {
       if (res.data === 404) {
         _this.exist = false;
       } else {
@@ -2079,7 +2079,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this.$v.content.required) {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.patch('http://127.0.0.1:8000/api/tasks/' + this.$route.params.id, {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.patch('/api/tasks' + this.$route.params.id, {
           content: this.content
         }).then(function (res) {
           if (res.status === 200) _this2.edit = 'Edit was successfully !';

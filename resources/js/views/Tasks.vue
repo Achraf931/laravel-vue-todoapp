@@ -51,7 +51,7 @@
                 }
             },
             deleteTask(task) {
-                axios.delete('/api/tasks/' + task.id).then(() => {
+                axios.delete('/api/tasks' + task.id).then(() => {
                     this.tasks.forEach(e => {
                         if (e === task){
                             this.tasks.splice(this.tasks.indexOf(e), 1)
