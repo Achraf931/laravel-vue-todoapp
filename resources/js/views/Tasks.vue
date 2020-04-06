@@ -35,14 +35,14 @@
             }
         },
         mounted() {
-            axios.get('http://127.0.0.1:8000/api/tasks').then(res => {
+            axios.get('/api/tasks').then(res => {
                 this.tasks = res.data
             })
         },
         methods: {
             createTask() {
                 if (this.$v.newTask.required) {
-                    axios.post('http://127.0.0.1:8000/api/tasks', {content: this.newTask}).then(res => {
+                    axios.post('/api/tasks', {content: this.newTask}).then(res => {
                         this.tasks.unshift(res.data)
                         this.newTask = ''
                     })
@@ -51,7 +51,7 @@
                 }
             },
             deleteTask(task) {
-                axios.delete('http://127.0.0.1:8000/api/tasks/' + task.id).then(() => {
+                axios.delete('/api/tasks/' + task.id).then(() => {
                     this.tasks.forEach(e => {
                         if (e === task){
                             this.tasks.splice(this.tasks.indexOf(e), 1)

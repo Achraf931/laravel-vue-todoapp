@@ -35,7 +35,7 @@
             }
         },
         beforeMount() {
-            axios.get('http://127.0.0.1:8000/api/tasks/' + this.$route.params.id).then(res => {
+            axios.get('/api/tasks/' + this.$route.params.id).then(res => {
                 if (res.data === 404) {
                     this.exist = false
                 } else {
@@ -46,7 +46,7 @@
         methods: {
             editTask() {
                 if (this.$v.content.required) {
-                    axios.patch('http://127.0.0.1:8000/api/tasks/' + this.$route.params.id, {content: this.content}).then(res => {
+                    axios.patch('/api/tasks/' + this.$route.params.id, {content: this.content}).then(res => {
                         if (res.status === 200)
                             this.edit = 'Edit was successfully !'
                     })
