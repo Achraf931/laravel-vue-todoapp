@@ -46,7 +46,7 @@
         methods: {
             editTask() {
                 if (this.$v.content.required) {
-                    axios.patch('/api/tasks' + this.$route.params.id, {content: this.content}).then(res => {
+                    axios.patch('/api/tasks/' + this.$route.params.id, {content: this.content}).then(res => {
                         if (res.status === 200)
                             this.edit = 'Edit was successfully !'
                     })
