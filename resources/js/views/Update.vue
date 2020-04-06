@@ -35,7 +35,7 @@
             }
         },
         beforeMount() {
-            axios.get('/api/tasks' + this.$route.params.id).then(res => {
+            axios.get('/api/tasks/' + this.$route.params.id).then(res => {
                 if (res.data === 404) {
                     this.exist = false
                 } else {
